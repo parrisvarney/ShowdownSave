@@ -1,0 +1,9 @@
+body {
+    min-width: 30em;
+}
+
+.link {
+    color: "blue";
+    text-decoration: underline;
+    cursor: pointer;
+}

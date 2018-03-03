@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Showdown Saver Options</title>
+    </head>
+    <body>
+        <h1>Options</h1>
+        <h2>Credentials</h2>
+        <p>
+            Before adding your credentials, acknowledge the following things:
+            <ol>
+                <li>There is *NO* forgot password functionality.  If you forget your credentials then your backed up teams are gone.</li>
+                <li>The credentials you enter here do not have to be the same as your credential in the <a href="https://pokemonshowdown.com/">Pokemon showdown app</a>.</li>
+                <li>Infinite people can share the same username provided they have different passwords, the backed up teams, however, will not be shared</li>
+                <li>This service makes no guarantees or warrantees or anything of the sort.  I will not not abuse or rely on this service for anything other than transient convenience.</li>
+            </ol>
+            <table>
+                <tr>
+                    <th>Username</th>
+                    <td><input type="text" id="username"/></td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td><input type="password" id="password"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span style="font-size: 10px">By subitting this form I acknowledge everything from the list above.</span>
+                    </td>
+                    <td><button type="button" id="save-button"/>Save</button></td>
+                </tr>
+            </table>
+        </p>
+        <script src="jquery-3.3.1.js"></script>
+        <script src="options.js"></script>
+    </body>
+</html>
