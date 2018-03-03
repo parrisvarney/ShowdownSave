@@ -1,56 +1,33 @@
 'use strict';
 
-const AWS = require('aws-sdk');
-const AwsConfig = require('./config').aws
+const AWS          = require('aws-sdk');
+const ApiInterface = require('./api-interface');
+const AwsConfig    = require('./config').aws
+
 AWS.config.update(AwsConfig);
 
-const s3 = new AWS.S3();
-
 module.exports.routeRequest = function (request, context, callback) {
-  // return callback(null, request);
-
-  if (request.httpMethod == 'PUT') {
-    const body = JSON.parse(request.body);
-
-    return putObjectToS3(body, callback)
-      .then(data => {
-        formatResponseForApi(null, data, callback);
-      })
-      .catch(err => {
-        const error = new Error(err);
-        formatResponseForApi(error, null, callback);
-      });
-  } else if (request.httpMethod == 'GET') {
-    const body = request.queryStringParameters
-    return getTeamsFromS3(body, callback)
-      .then(data => {
-        formatResponseForApi(null, data, callback);
-      })
-      .catch(err => {
-        const error = new Error(err);
-        formatResponseForApi(error, null, callback);
-      });
-  } else {
-    const error = new Error("Error: invalid Route.");
-    formatResponseForApi(error, null, callback);
+  switch(true) {
+    case request.httpMethod == 'PUT': 
+      return ApiInterface.formatForApi(
+        JSON.parse(request.body), 
+        putObjectToS3, 
+        callback);
+    case request.httpMethod == 'GET' && request.path == '/teams' :
+      return ApiInterface.formatForApi(
+        request.queryStringParameters, 
+        getTeamsFromS3, 
+        callback);
+    case request.httpMethod == 'GET' && request.path == '/team' :
+      return ApiInterface.formatForApi(
+        request.queryStringParameters, 
+        getTeamDataFromS3, 
+        callback);
   }
 }
 
-function formatResponseForApi(error, message, callback) {
-  const response = {
-    "statusCode": 200,
-    "body": JSON.stringify(message),
-    "isBase64Encoded": false
-  };
-
-  if (error) {
-    response.statusCode = 500;
-  }
-
-  callback(error, response);
-}
-
-function getTeamsFromS3(body, callback) {
+function getTeamsFromS3(body) {
+  const s3       = new AWS.S3();
   const password = getPasswordHash(body.password);
   const prefix   = body.username + "/" + password;
   // return callback(null, "pokemonshowdown" + body.username + "/" + password);
@@ -71,7 +48,23 @@ function getTeamsFromS3(body, callback) {
     });
 }
 
+function getTeamDataFromS3(body) {
+  const s3       = new AWS.S3();
+  const password = getPasswordHash(body.password);
+  const key      = `${body.username}/${password}/${body.team}`;
+  
+  return s3
+    .getObject({
+      Bucket: "pokemonshowdown",
+      Key:    key,
+    }).promise()
+    .then(data => {
+      return data['Body'].toString('utf-8');
+    });
+}
+
 function putObjectToS3(body) {
+  const s3       = new AWS.S3();
   const password = getPasswordHash(body.password);
 
   return s3.putObject({

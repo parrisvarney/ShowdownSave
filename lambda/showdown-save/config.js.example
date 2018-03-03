@@ -1,6 +1,6 @@
 module.exports = {
     aws: {
-        accessKeyId: "AKIAIEXAMPLEKEYID",
+        accessKeyId: "Example Key Id",
         secretAccessKey: 'ExampleAwsSecretKey'
     }
 }

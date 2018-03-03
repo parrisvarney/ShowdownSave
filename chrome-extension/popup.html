@@ -1,12 +1,25 @@
 <html>
     <head>
-        <title>Pokemon Showdown Saver Extednsion</title>
+        <title>Pokemon Showdown Saver Extension</title>
         <link href="popup.css" rel="stylesheet" type="text/css" media="all">
     </head>
     <body>
         <a class="link" id="open-config-link">Login and Config</a>
-        <h1>Save a team</h1>
-        <button type="button" id="save-team-button">Save team</button>
+        <section>
+                <h1>Your teams</h1>
+                <ul id="teams-list">
+                </ul>
+        </section>
+        <section>
+                <h1>Save a team</h1>
+                <div>
+                        <input type="text" id="save-team-name" placeholder="Team Name"/>
+                </div>
+                <div>
+                        <textarea id="save-team-contents">Copy paste team export</textarea>
+                </div>
+                <button type="button" id="save-team-button">Save team</button>
+        </section>
 
         <script src="jquery-3.3.1.js"></script>
         <script src="popup.js"></script>

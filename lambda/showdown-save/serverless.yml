@@ -67,6 +67,9 @@ functions:
       - http:
           path: team
           method: get
+      - http:
+          path: teams
+          method: get
 
 #    Define function environment variables here
 #    environment:

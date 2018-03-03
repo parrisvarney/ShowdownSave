@@ -11,7 +11,7 @@
     "options_page": "options.html",
     "permissions": [
       "https://play.pokemonshowdown.com/",
-      "https://iyw78xe6g2.execute-api.us-east-1.amazonaws.com/*",
+      "https://8duqbw8p14.execute-api.us-east-1.amazonaws.com/*",
       "storage"
     ],
     "content_scripts": [ {
