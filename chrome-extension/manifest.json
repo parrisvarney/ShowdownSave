@@ -12,10 +12,8 @@
     "permissions": [
       "https://play.pokemonshowdown.com/",
       "https://8duqbw8p14.execute-api.us-east-1.amazonaws.com/*",
-      "storage"
-    ],
-    "content_scripts": [ {
-      "matches": ["https://play.pokemonshowdown.com/*"],
-      "js": ["jquery-3.3.1.js"]
-    }]
+      "storage",
+      "activeTab",
+      "clipboardWrite"
+    ]
   }
