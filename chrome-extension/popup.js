@@ -7,7 +7,7 @@ $('document').ready(() => {
         }).done((teams) => {
             for (let team of teams) {
                 const row = `
-                    <tr>
+                    <tr id="team-row-${team}">
                     <td>${team}</td>
                     <td><a class="copy-team-link link" data-team="${team}">Clipboard Copy</a></td>
                     <td><a class="load-team-link link" data-team="${team}">Load to import screen</td>
@@ -21,7 +21,7 @@ $('document').ready(() => {
         if (request.action == "getSource") {
             const source = $(request.source);
 
-            if (source.find('.teamnameedit').length) {
+            if (source.find('.teamedit').length) {
                 $("#save-team-name").html(source.find('.teamnameedit').val());
                 $("#save-team-contents").val(source.find('.teamedit').text());
                 $('.import-screen-toggle').show()
@@ -106,12 +106,17 @@ $('#save-team-button').on('click', () => {
             console.log(result);
 
             const row = `
-                <tr>
+                <tr id="team-row-${teamName}">
                 <td>${teamName}</td>
                 <td><a class="copy-team-link link" data-team="${teamName}">Clipboard Copy</a></td>
                 <td><a class="load-team-link link" data-team="${teamName}">Load to import screen</td>
                 </tr>`;
-            $("#teams-table").append(row);
+            
+            if ($("#teams-table").find(`#team-row-${teamName}`).length) {
+                $(`#teams-table #team-row-${teamName}`).replaceWith(row);
+            } else {
+                $("#teams-table").append(row);
+            }
         });
     })
 });
