@@ -5,23 +5,17 @@
     </head>
     <body>
         <a class="link" id="open-config-link">Login and Config</a>
+        <section class="import-screen-toggle">
+                <h1>Backup your team</h1>
+                <div>
+                    Backup "<span id="save-team-name"></span>": <button type="button" id="save-team-button">Backup</button>
+                    <textarea id="save-team-contents"></textarea>
+                </div>
+        </section>
         <section>
                 <h1>Your teams</h1>
                 <table id="teams-table">
                 </table>
-        </section>
-        <section>
-                <h1>Save a team</h1>
-                <div>
-                    You can save the currently loaded team if you have the import/export window open
-                </div>
-                <div>
-                        <input type="text" id="save-team-name" placeholder="Team Name"/>
-                </div>
-                <div>
-                        <textarea id="save-team-contents">Copy paste team export</textarea>
-                </div>
-                <button type="button" id="save-team-button">Save team</button>
         </section>
 
         <script src="jquery-3.3.1.js"></script>
