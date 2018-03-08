@@ -1,11 +1,17 @@
+html {
+    background-image: url("background.png");
+    background-size:  cover;
+}
+
 body {
     min-width: 30em;
 }
 
 .link {
-    color: #0000FF;
+    color:         #0000FF;
     text-decoration: underline;
-    cursor: pointer;
+    cursor:          pointer;
+    font-size:       0.75em;
 }
 
 #save-team-contents {
@@ -14,4 +20,17 @@ body {
 
 .import-screen-toggle {
     display: none;
+}
+
+#teams-table {
+    width: 100%;
+}
+
+#teams-table td {
+    border-bottom: 1px solid #999999
+}
+
+.open-config-link {
+    float: right;
+    padding: 1em;
 }

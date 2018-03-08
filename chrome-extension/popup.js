@@ -9,8 +9,8 @@ $('document').ready(() => {
                 const row = `
                     <tr>
                     <td>${team}</td>
-                    <td><a class="load-team-link link" data-team="${team}">Load</td>
-                    <td><a class="copy-team-link link" data-team="${team}">Copy</a></td>
+                    <td><a class="copy-team-link link" data-team="${team}">Clipboard Copy</a></td>
+                    <td><a class="load-team-link link" data-team="${team}">Load to import screen</td>
                     </tr>`;
                 $("#teams-table").append(row);
             }
