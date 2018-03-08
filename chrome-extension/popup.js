@@ -105,6 +105,6 @@ $('#save-team-button').on('click', () => {
     })
 });
 
-$('#open-config-link').on('click', () => {
-    chrome.runtime.openOptionsPage();
+$('.open-config-link').on('click', () => {
+    chrome.runtime.openOptionsPage();   
 });
