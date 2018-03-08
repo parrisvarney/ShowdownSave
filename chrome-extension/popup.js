@@ -90,7 +90,8 @@ $("#teams-table").on('click', '.load-team-link', (data) => {
 
 $('#save-team-button').on('click', () => {
     chrome.storage.sync.get(null, (options) => {
-        console.log(options);
+        const teamName = $("#save-team-name").html();
+        const teamData = $("#save-team-contents").val();
 
         $.ajax({
             "url": "https://8duqbw8p14.execute-api.us-east-1.amazonaws.com/one/team",
@@ -98,10 +99,20 @@ $('#save-team-button').on('click', () => {
             "data": JSON.stringify({
                 "username": options.username,
                 "password": options.password,
-                "team": $("#save-team-name").val(),
-                "data": $("#save-team-contents").val(),
+                "team":     teamName,
+                "data":     teamData,
             })
-        })
+        }).done((result) => {
+            console.log(result);
+
+            const row = `
+                <tr>
+                <td>${teamName}</td>
+                <td><a class="copy-team-link link" data-team="${teamName}">Clipboard Copy</a></td>
+                <td><a class="load-team-link link" data-team="${teamName}">Load to import screen</td>
+                </tr>`;
+            $("#teams-table").append(row);
+        });
     })
 });
 
