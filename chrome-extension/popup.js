@@ -5,14 +5,20 @@ $('document').ready(() => {
             "url": `https://8duqbw8p14.execute-api.us-east-1.amazonaws.com/one/teams?username=${options.username}&password=${options.password}`,
             "method": "GET",
         }).done((teams) => {
-            for (let team of teams) {
-                const row = `
-                    <tr id="team-row-${team}">
-                    <td>${team}</td>
-                    <td><a class="copy-team-link link" data-team="${team}">Clipboard Copy</a></td>
-                    <td><a class="load-team-link link" data-team="${team}">Load to import screen</td>
-                    </tr>`;
-                $("#teams-table").append(row);
+            $('.teams-loading-section').hide();
+            if (teams.length > 0) {
+                $('.teams-section').show();
+                for (let team of teams) {
+                    const row = `
+                        <tr id="team-row-${team}">
+                        <td>${team}</td>
+                        <td><a class="copy-team-link link" data-team="${team}">Clipboard Copy</a></td>
+                        <td><a class="load-team-link link" data-team="${team}">Load to import screen</td>
+                        </tr>`;
+                    $("#teams-table").append(row);
+                }
+            } else {
+                $('.no-teams-section').show()
             }
         });
     });
@@ -104,6 +110,8 @@ $('#save-team-button').on('click', () => {
             })
         }).done((result) => {
             console.log(result);
+            $('.teams-section').show();
+            $('.no-teams-section').hide()
 
             const row = `
                 <tr id="team-row-${teamName}">
