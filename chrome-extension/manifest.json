@@ -17,9 +17,8 @@
       "clipboardWrite"
     ],
     "content_scripts": [{
-      "matches": ["https://play.pokemonshowdown.com/teambuilder"],
+      "matches": ["https://play.pokemonshowdown.com/*"],
       "js": [
-        "jquery-3.3.1.js", 
         "showdown-page-set.js"
       ]
     }]
