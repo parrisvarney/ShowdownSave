@@ -9,22 +9,6 @@ body {
     margin:     0;
 }
 
-.flex-container {
-    display:         flex;
-    align-items:     center;
-    align-content:   stretch;
-    flex-direction:  column;
-    justify-content: flex-start;
-}
-
-.flex-container > header {
-    flex: 0 1 auto;
-}
-
-.flex-container > section {
-    flex: 1 0 auto;
-}
-
 header {
     position: relative;
     width:    100%;
@@ -59,11 +43,17 @@ header span.username {
 
 .nav-menu > li {  
     display:         inline-block;
+    padding:         0.5em 0;
     width:           32%;
     font-size:       18px;
     font-family:     sans-serif;
     color:           #676565;
     text-decoration: underline;
+}
+
+.nav-menu-active {
+    font-weight: bolder;
+    background-color: lightblue;
 }
 
 h2 {
@@ -80,14 +70,19 @@ h2 {
 .main-section {
     display:         none;
     text-align:      center;
+    padding-top:     1em;
 }
 
-.main-section > div {
-    flex: 1 0 auto;
+.login-section {
+    margin-top: 2em;
+}
+
+.login-section input[type='submit'] {
+    margin-left: 3em;
 }
 
 input[type='text'] {
-    padding: 0.5em;
+    padding: 0.75em;
     margin:  0.5em;
     width:   75%;
 }

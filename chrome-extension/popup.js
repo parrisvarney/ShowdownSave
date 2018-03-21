@@ -1,6 +1,7 @@
 // Load your teams
 $('document').ready(() => {
     $('#login-section').css('display', 'block');
+    $('#login-tab').addClass('nav-menu-active');
     chrome.storage.sync.get(null, (options) => {
         $.ajax({
             "url": `https://8duqbw8p14.execute-api.us-east-1.amazonaws.com/one/teams?username=${options.username}&password=${options.password}`,
@@ -50,6 +51,16 @@ $('document').ready(() => {
         }
     });
 });
+
+$('.nav-menu > li').on('click', (event) => {
+    $('.nav-menu > li').removeClass('nav-menu-active');
+    $(event.target).addClass('nav-menu-active');
+
+    $('.main-section').hide();
+    const activeSection = $(event.target).data('section');
+
+    $(`#${activeSection}`).show()
+})
 
 $("#teams-table").on('click', '.copy-team-link', (data) => {
     chrome.storage.sync.get(null, (options) => {

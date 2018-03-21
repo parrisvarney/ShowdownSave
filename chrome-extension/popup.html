@@ -12,9 +12,9 @@
                     <span class="username">iheartparris</span>
                     <nav>
                         <ul class="nav-menu">
-                            <li>Load</li>
-                            <li>Save</li>
-                            <li>Login</li>
+                            <li id="load-tab" data-section="load-teams-section">Load</li>
+                            <li id="save-tab" data-section="save-teams-section">Save</li>
+                            <li id="login-tab" data-section="login-section">Login</li>
                         </ul>
                     </nav>
             </header>
@@ -40,11 +40,11 @@
                     <textarea id="save-team-contents"></textarea>
                 </div>
             </section>
-            <section id="login-section" class="main-section">
+            <section id="login-section" class="main-section login-section">
                 <div>
                     <input type="text" placeholder="Username"/><br/>
                     <input type="text" placeholder="Password"/><br/>
-                    <label><input type="checkbox"> I've read and accept <a href="#">the terms</a>.</label>
+                    <label><input type="checkbox"> I've accept <a href="#">the terms</a>.</label>
                     <input type="submit">
                 </div>
             </section>
