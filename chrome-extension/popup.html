@@ -6,31 +6,50 @@
 </head>
 
 <body>
-    <a class="link open-config-link">Login</a>
-    <a class="link open-config-link">Help</a>
-    <a class="link open-config-link">Settings</a>
-    <h1>Showdown Saver</h1>
-    <section class="teams-loading-section">
-        <h2>Loading your teams...</h2>
-    </section>
-    <section class="teams-section">
-        <h2>Your teams</h2>
-        <table id="teams-table">
-        </table>
-    </section>
-    <section class="no-teams-section">
-        <h3>You have no saved teams :(</h3>
-        Visit <a class="link" href="https://play.pokemonshowdown.com" target="_blank">Showdown</a> and create some teams!
-    </section>
-    <section class="import-screen-toggle">
-        <h2>Backup your team</h2>
-        <div>
-            Backup "
-            <span id="save-team-name"></span>":
-            <button type="button" id="save-team-button">Backup</button>
-            <textarea id="save-team-contents"></textarea>
-        </div>
-    </section>
+    <div class="flex-container">
+            <header>
+                    <h1>Showdown Saver</h1>
+                    <span class="username">iheartparris</span>
+                    <nav>
+                        <ul class="nav-menu">
+                            <li>Load</li>
+                            <li>Save</li>
+                            <li>Login</li>
+                        </ul>
+                    </nav>
+            </header>
+            <section id="save-teams-section" class="main-section">
+                <div class="teams-loading-div">
+                    <h2>Loading your teams...</h2>
+                </div>
+                <div>
+                    <h2>Your teams</h2>
+                    <table id="teams-table">
+                    </table>
+                </div>
+                <div id="no-teams-div">
+                    <h3>You have no saved teams :(</h3>
+                    Visit <a class="link" href="https://play.pokemonshowdown.com" target="_blank">Showdown</a> and create some teams!
+                </div>
+            </section>
+            <section id="load-teams-section" class="main-section">
+                <h2>Backup your team</h2>
+                <div>
+                    Backup "<span id="save-team-name"></span>":
+                    <button type="button" id="save-team-button">Backup</button>
+                    <textarea id="save-team-contents"></textarea>
+                </div>
+            </section>
+            <section id="login-section" class="main-section">
+                <div>
+                    <input type="text" placeholder="Username"/><br/>
+                    <input type="text" placeholder="Password"/><br/>
+                    <label><input type="checkbox"> I've read and accept <a href="#">the terms</a>.</label>
+                    <input type="submit">
+                </div>
+            </section>
+    </div>
+    
 
     <script src="jquery-3.3.1.js"></script>
     <script src="popup.js"></script>

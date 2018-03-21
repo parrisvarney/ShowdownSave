@@ -1,5 +1,6 @@
 // Load your teams
 $('document').ready(() => {
+    $('#login-section').css('display', 'block');
     chrome.storage.sync.get(null, (options) => {
         $.ajax({
             "url": `https://8duqbw8p14.execute-api.us-east-1.amazonaws.com/one/teams?username=${options.username}&password=${options.password}`,

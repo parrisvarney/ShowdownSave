@@ -4,7 +4,66 @@ html {
 }
 
 body {
-    min-width: 30em;
+    min-width:  30em;
+    min-height: 30em;
+    margin:     0;
+}
+
+.flex-container {
+    display:         flex;
+    align-items:     center;
+    align-content:   stretch;
+    flex-direction:  column;
+    justify-content: flex-start;
+}
+
+.flex-container > header {
+    flex: 0 1 auto;
+}
+
+.flex-container > section {
+    flex: 1 0 auto;
+}
+
+header {
+    position: relative;
+    width:    100%;
+}
+
+section {
+    width:     100%;
+}
+
+h1 {
+    background-color: #fb5656;
+    color:            #FFFFFF;
+    font-style:       italic;
+    padding:          0.5em;
+    margin:           0.5em 0;
+}
+
+header span.username {
+    color:         #0000FF;
+    text-decoration: underline;
+    position:        absolute;
+    top:             3px;
+    right:           1em;
+}
+
+.nav-menu {
+    list-style: none;
+    text-align: center;
+    margin:     0;
+    padding:    0;
+}
+
+.nav-menu > li {  
+    display:         inline-block;
+    width:           32%;
+    font-size:       18px;
+    font-family:     sans-serif;
+    color:           #676565;
+    text-decoration: underline;
 }
 
 h2 {
@@ -16,6 +75,21 @@ h2 {
     text-decoration: underline;
     cursor:          pointer;
     font-size:       0.75em;
+}
+
+.main-section {
+    display:         none;
+    text-align:      center;
+}
+
+.main-section > div {
+    flex: 1 0 auto;
+}
+
+input[type='text'] {
+    padding: 0.5em;
+    margin:  0.5em;
+    width:   75%;
 }
 
 #save-team-contents {
