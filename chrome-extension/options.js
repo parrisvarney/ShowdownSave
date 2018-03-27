@@ -1,12 +1,17 @@
 // Saves options to chrome.storage
 function save_options() {
-    const username = $('#username').val();
-    const password = $('#password').val();
+    const username = $('#login-section #username').val();
+    const password = $('#login-section #password').val();
+    const yesTerms = $('#login-section #agree-to-terms');
 
     chrome.storage.sync.set({username, password}, function() {
-      alert("Creds Saved");
-      console.log(username, password);
+      if (yesTerms.prop("checked")) {
+        alert("Creds Saved");
+        console.log(username, password);
+      } else {
+        alert("Must acknowledge terms");
+      }
     });
   }
 
-  $('#save-button').on('click', save_options);
+  $('#login-button').on('click', save_options);

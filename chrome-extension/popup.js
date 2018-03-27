@@ -1,6 +1,6 @@
 // Load your teams
 $('document').ready(() => {
-    $('#login-section').css('display', 'block');
+    $('#load-section').css('display', 'block');
     $('#login-tab').addClass('nav-menu-active');
     chrome.storage.sync.get(null, (options) => {
         $.ajax({

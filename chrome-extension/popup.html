@@ -12,13 +12,13 @@
                     <span class="username">iheartparris</span>
                     <nav>
                         <ul class="nav-menu">
-                            <li id="load-tab" data-section="load-teams-section">Load</li>
-                            <li id="save-tab" data-section="save-teams-section">Save</li>
+                            <li id="load-tab" data-section="load-section">Load</li>
+                            <li id="save-tab" data-section="save-section">Save</li>
                             <li id="login-tab" data-section="login-section">Login</li>
                         </ul>
                     </nav>
             </header>
-            <section id="save-teams-section" class="main-section">
+            <section id="load-section" class="main-section">
                 <div class="teams-loading-div">
                     <h2>Loading your teams...</h2>
                 </div>
@@ -32,20 +32,20 @@
                     Visit <a class="link" href="https://play.pokemonshowdown.com" target="_blank">Showdown</a> and create some teams!
                 </div>
             </section>
-            <section id="load-teams-section" class="main-section">
-                <h2>Backup your team</h2>
-                <div>
-                    Backup "<span id="save-team-name"></span>":
-                    <button type="button" id="save-team-button">Backup</button>
+            <section id="save-section" class="main-section">
+                <h2>Backup Team</h2>
+                <div id="backup-team-div">
+                    <p class="team-name" id="save-team-name"></p>
+                    <button type="button" id="save-team-button">BACKUP</button>
                     <textarea id="save-team-contents"></textarea>
                 </div>
             </section>
             <section id="login-section" class="main-section login-section">
                 <div>
-                    <input type="text" placeholder="Username"/><br/>
-                    <input type="text" placeholder="Password"/><br/>
-                    <label><input type="checkbox"> I've accept <a href="#">the terms</a>.</label>
-                    <input type="submit">
+                    <input type="text" id="username" placeholder="Username"/><br/>
+                    <input type="text" id="password" placeholder="Password"/><br/>
+                    <label><input type="checkbox" id="agree-to-terms"> I accept <a href="#">the terms</a>.</label>
+                    <button id="login-button">Login</button>
                 </div>
             </section>
     </div>
@@ -53,6 +53,7 @@
 
     <script src="jquery-3.3.1.js"></script>
     <script src="popup.js"></script>
+    <script src="options.js"></script>
 </body>
 
 </html>
