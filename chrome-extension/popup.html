@@ -9,7 +9,7 @@
     <div class="flex-container">
             <header>
                     <h1>Showdown Saver</h1>
-                    <span class="username">iheartparris</span>
+                    <span id="header-username" class="username"></span>
                     <nav>
                         <ul class="nav-menu">
                             <li id="load-tab" data-section="load-section">Load</li>
@@ -19,10 +19,10 @@
                     </nav>
             </header>
             <section id="load-section" class="main-section">
-                <div class="teams-loading-div">
+                <div id="teams-loading-div">
                     <h2>Loading your teams...</h2>
                 </div>
-                <div id="no-teams-div">
+                <div id="no-teams-div" class="initially-hidden">
                     <h3>You have no saved teams :(</h3>
                     Visit <a class="link" href="https://play.pokemonshowdown.com" target="_blank">Showdown</a> and create some teams!
                 </div>

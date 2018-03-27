@@ -107,45 +107,30 @@ input[type='text'] {
     display: none;
 }
 
-.import-screen-toggle {
-    display: none;
-}
-
-.teams-section {
-    display: none;  
-}
-
-.no-teams-section {
+.initially-hidden {
     display: none;
 }
 
 .team-row {
     background-color: #eae6e6;
     padding:          1em;
+    margin:           1em;
     color:            #686666;
     font-weight:      900;
     position:         relative;
+    max-width:        25em;
+    text-overflow:    ellipsis;
+    overflow:         hidden;
 }
 
-.team-row::after {
-    content:          ' ';
+.load-team-icon {
     position:         absolute;
     right:            5px;
     top:              50%;
     margin-top:       -12px;
     width:            25px;
     height:           25px;
-    background-image: url('copy-icon.png');
-    background-size:  cover;
 }
-
-/* #teams-table {
-    width: 100%;
-} */
-
-/* #teams-table td {
-    border-bottom: 1px solid #999999
-} */
 
 .open-config-link {
     float: right;

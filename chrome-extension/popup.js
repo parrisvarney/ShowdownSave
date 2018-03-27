@@ -1,24 +1,32 @@
 // Load your teams
 $('document').ready(() => {
-    $('#load-section').css('display', 'block');
+    $('#login-section').css('display', 'block');
     $('#login-tab').addClass('nav-menu-active');
     chrome.storage.sync.get(null, (options) => {
+        if (options.username) {
+            $('#login-tab').removeClass('nav-menu-active');
+            $('#load-tab').addClass('nav-menu-active');
+            $('#load-section').css('display', 'block');
+            $('#login-section').css('display', 'none');
+        }
+
+        $('#header-username').html(options.username);
         $.ajax({
             "url": `https://8duqbw8p14.execute-api.us-east-1.amazonaws.com/one/teams?username=${options.username}&password=${options.password}`,
             "method": "GET",
         }).done((teams) => {
-            $('.teams-loading-section').hide();
+            $('#teams-loading-div').hide();
             if (teams.length > 0) {
                 $('.teams-section').show();
                 for (let team of teams) {
                     const row = `
                         <p class="team-row" id="team-row-${team}">${team}
-                            <a class="load-team-link link" data-team="${team}">Load to import screen
+                            <img src='copy-icon.png' class='load-team-icon' data-team="${team}">
                         </p>`;
                     $("#teams-div").append(row);
                 }
             } else {
-                $('.no-teams-section').show()
+                $('#no-teams-div').show()
             }
         });
     });
@@ -30,9 +38,7 @@ $('document').ready(() => {
             if (source.find('.teamedit').length) {
                 $("#save-team-name").html(source.find('.teamnameedit').val());
                 $("#save-team-contents").val(source.find('.teamedit').text());
-                $('.import-screen-toggle').show()
             } else {
-                $('.import-screen-toggle').hide()
                 $("#save-team-name").html('');
                 $("#save-team-contents").val('');
             }
@@ -81,7 +87,7 @@ $("#teams-div").on('click', '.copy-team-link', (data) => {
     });
 });
 
-$("#teams-div").on('click', '.load-team-link', (data) => {
+$("#teams-div").on('click', '.load-team-icon', (data) => {
     const teamName = $(data.target).data('team');
 
     chrome.storage.sync.get(null, (options) => {
@@ -124,11 +130,9 @@ $('#save-team-button').on('click', () => {
             $('.no-teams-section').hide()
 
             const row = `
-                <tr id="team-row-${teamName}">
-                <td>${teamName}</td>
-                <td><a class="copy-team-link link" data-team="${teamName}">Clipboard Copy</a></td>
-                <td><a class="load-team-link link" data-team="${teamName}">Load to import screen</td>
-                </tr>`;
+                <p class="team-row" id="team-row-${teamName}">${teamName}
+                    <img src='copy-icon.png' class='load-team-icon' data-team="${teamName}">
+                </p>`;
             
             if ($("#teams-div").find(`#team-row-${teamName}`).length) {
                 $(`#teams-div #team-row-${teamName}`).replaceWith(row);
