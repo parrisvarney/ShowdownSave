@@ -12,12 +12,10 @@ $('document').ready(() => {
                 $('.teams-section').show();
                 for (let team of teams) {
                     const row = `
-                        <tr id="team-row-${team}">
-                        <td>${team}</td>
-                        <td><a class="copy-team-link link" data-team="${team}">Clipboard Copy</a></td>
-                        <td><a class="load-team-link link" data-team="${team}">Load to import screen</td>
-                        </tr>`;
-                    $("#teams-table").append(row);
+                        <p class="team-row" id="team-row-${team}">${team}
+                            <a class="load-team-link link" data-team="${team}">Load to import screen
+                        </p>`;
+                    $("#teams-div").append(row);
                 }
             } else {
                 $('.no-teams-section').show()
@@ -62,7 +60,7 @@ $('.nav-menu > li').on('click', (event) => {
     $(`#${activeSection}`).show()
 })
 
-$("#teams-table").on('click', '.copy-team-link', (data) => {
+$("#teams-div").on('click', '.copy-team-link', (data) => {
     chrome.storage.sync.get(null, (options) => {
         $.ajax({
             "url": `https://8duqbw8p14.execute-api.us-east-1.amazonaws.com/one/team?username=${options.username}&password=${options.password}&team=${teamName}`,
@@ -83,7 +81,7 @@ $("#teams-table").on('click', '.copy-team-link', (data) => {
     });
 });
 
-$("#teams-table").on('click', '.load-team-link', (data) => {
+$("#teams-div").on('click', '.load-team-link', (data) => {
     const teamName = $(data.target).data('team');
 
     chrome.storage.sync.get(null, (options) => {
@@ -132,10 +130,10 @@ $('#save-team-button').on('click', () => {
                 <td><a class="load-team-link link" data-team="${teamName}">Load to import screen</td>
                 </tr>`;
             
-            if ($("#teams-table").find(`#team-row-${teamName}`).length) {
-                $(`#teams-table #team-row-${teamName}`).replaceWith(row);
+            if ($("#teams-div").find(`#team-row-${teamName}`).length) {
+                $(`#teams-div #team-row-${teamName}`).replaceWith(row);
             } else {
-                $("#teams-table").append(row);
+                $("#teams-div").append(row);
             }
         });
     })
