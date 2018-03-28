@@ -23,9 +23,17 @@ h1 {
 
 header span.username {
     color:         #0000FF;
+    position:        absolute;
+    top:             0.5em;
+    right:           1em;
+}
+
+header span.help-link {
+    color:         #0000FF;
     text-decoration: underline;
     position:        absolute;
-    top:             3px;
+    font-weight:     bolder;
+    top:             2.5em;
     right:           1em;
 }
 
@@ -71,7 +79,6 @@ h2 {
     color:         #0000FF;
     text-decoration: underline;
     cursor:          pointer;
-    font-size:       0.25em;
 }
 
 button {    

@@ -12,56 +12,43 @@
     </section>
     <section>
         <h1>Instructions</h1>
+        <h2>Usage</h2>
+        <p>
+            All interaction with this extension happens from a showdown import/export page.
+        </p>
+        <img src="screen-shots/import-screen.png"/>
+        <h2>Sign in</h2>
+        <p>
+            <ul>
+                <li>There is no "forgot password" functionality!</li>
+                <li>Extension accounts are *not* linked to your showdown accounts!</li>
+                <li>Your teams are password protected, but *not* encrypted! </li>
+            </ul>
+        </p>
         <ol>
-            <li>From <a href="https://play.pokemonshowdown.com/teambuilder">the Showdown teambuilder page...</a></li>
-            <li>Either click <img class="inline-block" src="screen-shots/new-team.png"/> button, or the edit team 
-                <img class="inline-block" src="screen-shots/edit-team.png"/> button.</li>
-            <li>Click the <img class="inline-block" src="screen-shots/import-export.png"> button.</li>
-            <li>Open the <img class="inline-block" src="icon.png"/> extension popup from the Chrome extension bar</li>
-            <li>Click the <img class="inline-block" src="screen-shots/backup-button.png"/> button to backup your team to the 
-                cloud, or <img class="inline-block" src="screen-shots/load-team.png"/> the link to load your team into Showdown.</li>
+            <li>Open the extension <img class="inline-block" src="icon.png"/>.</li>
+            <li>Enter a username and password.  If your username/password 
+                combination isn't in the database, a new account will automatically be created.</li>
+            <li>Accept the terms/directions checkbox</li>
+            <li>Click the "Login" button</li>
+        </ol>
+        <h2>Save a team</h2>
+        <ol>
+            <li>Build a team on <a href="https://play.pokemonshowdown.com/teambuilder">showdown</a>.</li>
+            <li>Go to the import/export screen for that team.</li>
+            <li>Open the extension <img class="inline-block" src="icon.png"/>.</li>
+            <li>Goto the Save tab.</li>
+            <li>Click the "BACKUP" button</li>
+        </ol>
+        <h2>Load a team</h2>
+        <ol>
+            <li>Build and save a team on <a href="https://play.pokemonshowdown.com/teambuilder">showdown</a>.</li>
+            <li>Go to the import/export screen for a new team.</li>
+            <li>Open the extension <img class="inline-block" src="icon.png"/>.</li>
+            <li>Goto the Load tab.</li>
+            <li>Click the <img src="copy-icon.png" class="load-team-icon"/> button</li>
         </ol>
     </section>
-    <section>
-        <h1>Options</h1>
-        <h2>Credentials</h2>
-        <p>
-            Before adding your credentials, acknowledge the following things:
-            <ol>
-                <li>This is pre-alpha software.</li>
-                <li>There is *NO* forgot password functionality. If you forget your credentials then your backed up teams are gone.</li>
-                <li>The credentials you enter here do not have to be the same as your credential in 
-                    <a href="https://pokemonshowdown.com/">Pokemon showdown</a>.</li>
-                <li>Infinite people can share the same username provided they have different passwords, the backed up teams,
-                    however, will not be shared</li>
-                <li>This service makes no guarantees or warrantees or anything of the sort.</li>
-            </ol>
-            <table>
-                <tr>
-                    <th>Username</th>
-                    <td>
-                        <input type="text" id="username" />
-                    </td>
-                </tr>
-                <tr>
-                    <th>Password</th>
-                    <td>
-                        <input type="password" id="password" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <span style="font-size: 10px">By submitting this form I acknowledge everything from the list above.</span>
-                    </td>
-                    <td>
-                        <button type="button" id="save-button" />Save</button>
-                    </td>
-                </tr>
-            </table>
-        </p>
-    </section>
-    <script src="jquery-3.3.1.js"></script>
-    <script src="options.js"></script>
 </body>
 
 </html>

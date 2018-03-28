@@ -6,3 +6,7 @@ h1 {
     display: inline-block;
     max-height: 2em;
 }
+
+.load-team-icon {
+    width: 2em;
+}
